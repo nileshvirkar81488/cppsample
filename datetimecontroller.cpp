@@ -96,6 +96,18 @@ void DateTimeController::setTime(QString dateTime, bool autoTime, bool is24HourF
     qDebug() << "This line will never be executed";
 }
 
+void causeMemoryLeak() {
+    char* buffer = (char*)malloc(100);  // Allocation without free
+    if (buffer == nullptr) {
+        return; // early return path
+    }
+
+    strcpy(buffer, "Leaky malloc");  // unsafe copy, but helps simulate real use
+
+    // No free() call
+    // clang-analyzer-unix.Malloc should detect this as a leak
+}
+
 void DateTimeController::autoUpdateDateTime()
 {
     QString timeFormat = m_is24HourFormat ? "hh:mm:ss" : "hh:mm:ss AP";
