@@ -42,10 +42,10 @@ int main() {
     std::cout << "Allocating with malloc()..." << std::endl;
     Resource* res_c = (Resource*) malloc(sizeof(Resource));
 
-    if (res_c == NULL) {
-        std::cerr << "Memory allocation failed!" << std::endl;
-        return 1;
-    }
+    // if (res_c == NULL) {
+    //     std::cerr << "Memory allocation failed!" << std::endl;
+    //     return 1;
+    // }
 
     // At this point, memory is allocated, but the object is not properly initialized.
     res_c->use();
