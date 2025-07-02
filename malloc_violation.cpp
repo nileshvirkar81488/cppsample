@@ -31,6 +31,10 @@ void test()
 }
 
 int main() {
+    int *p = malloc(1); 
+    free(p); 
+    free(p); // warn: attempt to free released memory 
+    
     std::cout << "--- 1. VIOLATION: Using C-style malloc() and free() ---" << std::endl;
 
     // Allocate memory for a Resource object using malloc().
