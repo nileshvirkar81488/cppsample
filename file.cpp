@@ -7,6 +7,41 @@
 #include <errno.h>
 #include <stdarg.h>
 
+// Dummy definition for jacknet_packet_header
+typedef struct {
+    int dummy;
+} jacknet_packet_header;
+
+// Dummy error function
+void jack_error(const char *fmt, ...) {
+    va_list args;
+    va_start(args, fmt);
+    vfprintf(stderr, fmt, args);
+    fprintf(stderr, "\n");
+    va_end(args);
+}
+
+// Dummy definition for cache_packet
+typedef struct {
+    int valid;
+    int num_fragments;
+    int packet_size;
+    int mtu;
+    unsigned long framecnt;
+    char *fragment_array;
+    void *packet_buf;
+} cache_packet;
+
+// Definition for packet_cache
+typedef struct {
+    int size;
+    cache_packet *packets;
+    int master_address_valid;
+    unsigned long last_framecnt_retreived;
+    int last_framecnt_retreived_valid;
+    int mtu;
+} packet_cache;
+
 packet_cache
 *packet_cache_new (int num_packets, int pkt_size, int mtu)
 {
