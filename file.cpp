@@ -26,12 +26,10 @@ void create_memory_leak() {
     // We exit the function without calling free(buffer). The pointer is lost,
     // and the allocated memory can no longer be accessed or freed.
 
-    // 4. The function's execution path stops here.
+    // DeadStores.deadcode, Check for values stored to variables that are never read afterwards
+    int x; x = 1; // warn
+    
     return;
-
-    // 5. Dead Code: The following code is unreachable.
-    // Ironically, the line that would fix the leak is now unreachable.
-    std::cout << "This line will never execute." << std::endl;
 }
 
 int main() {
