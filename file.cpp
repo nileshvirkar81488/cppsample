@@ -25,6 +25,13 @@ void create_memory_leak() {
     // 3. The leak happens here.
     // We exit the function without calling free(buffer). The pointer is lost,
     // and the allocated memory can no longer be accessed or freed.
+
+    // 4. The function's execution path stops here.
+    return;
+
+    // 5. Dead Code: The following code is unreachable.
+    // Ironically, the line that would fix the leak is now unreachable.
+    std::cout << "This line will never execute." << std::endl;
 }
 
 int main() {
