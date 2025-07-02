@@ -53,14 +53,14 @@ packet_cache
     else
         fragment_number = (pkt_size - sizeof (jacknet_packet_header) - 1) / fragment_payload_size + 1;
 
-    packet_cache *pcache = malloc (sizeof (packet_cache));
+    packet_cache *pcache = (packet_cache *)malloc (sizeof (packet_cache));
     if (pcache == NULL) {
         jack_error ("could not allocate packet cache (1)");
         return NULL;
     }
 
     pcache->size = num_packets;
-    pcache->packets = malloc (sizeof (cache_packet) * num_packets);
+    pcache->packets = (cache_packet *)malloc (sizeof (cache_packet) * num_packets);
     pcache->master_address_valid = 0;
     pcache->last_framecnt_retreived = 0;
     pcache->last_framecnt_retreived_valid = 0;
@@ -76,7 +76,7 @@ packet_cache
         pcache->packets[i].packet_size = pkt_size;
         pcache->packets[i].mtu = mtu;
         pcache->packets[i].framecnt = 0;
-        pcache->packets[i].fragment_array = malloc (sizeof (char) * fragment_number);
+        pcache->packets[i].fragment_array = (char *)malloc (sizeof (char) * fragment_number);
         pcache->packets[i].packet_buf = malloc (pkt_size);
         if ((pcache->packets[i].fragment_array == NULL) || (pcache->packets[i].packet_buf == NULL)) {
             jack_error ("could not allocate packet cache (3)");
