@@ -23,6 +23,13 @@ public:
     }
 };
 
+void test() 
+{ 
+    int *p = malloc(1); 
+    free(p); 
+    free(p); // warn: attempt to free released memory 
+}
+
 int main() {
     std::cout << "--- 1. VIOLATION: Using C-style malloc() and free() ---" << std::endl;
 
