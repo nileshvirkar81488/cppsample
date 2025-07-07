@@ -93,6 +93,7 @@ void DateTimeController::setTime(QString dateTime, bool autoTime, bool is24HourF
     emit timeZoneChanged();
 
     // Dead code: Unreachable code after return statement
+    return;
     qDebug() << "This line will never be executed";
 }
 
