@@ -46,7 +46,9 @@ void example_function() {
     }
 }
 
-void test(int z) { if (z == 0) int x = 1 / z; // warn }
+void test(int z) { 
+if (z == 0) int x = 1 / z; // warn 
+}
 
 int main() {
     create_memory_leak();
