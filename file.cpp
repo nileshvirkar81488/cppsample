@@ -37,6 +37,16 @@ void create_memory_leak() {
     std::cout << "This line will never execute." << std::endl;
 }
 
+void example_function() {
+    try {
+        // Some risky operation that might throw an exception
+        throw std::runtime_error("Something went wrong!");
+    }
+    catch (const std::exception& e) {
+        // This is an empty catch block - no statements inside
+    }
+}
+
 int main() {
     create_memory_leak();
     std::cout << "The memory allocated in the function is now leaked." << std::endl;
