@@ -43,7 +43,6 @@ void example_function() {
         throw std::runtime_error("Something went wrong!");
     }
     catch (const std::exception& e) {
-        // This is an empty catch block - no statements inside
     }
 }
 
