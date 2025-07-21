@@ -37,14 +37,14 @@ void create_memory_leak() {
     std::cout << "This line will never execute." << std::endl;
 }
 
-void example_function() {
-    try {
-        // Some risky operation that might throw an exception
-        throw std::runtime_error("Something went wrong!");
-    }
-    catch (const std::exception& e) {
-    }
-}
+// void example_function() {
+//     try {
+//         // Some risky operation that might throw an exception
+//         throw std::runtime_error("Something went wrong!");
+//     }
+//     catch (const std::exception& e) {
+//     }
+// }
 
 // void test(int z) { 
 // if (z == 0) int x = 1 / z; // warn 
