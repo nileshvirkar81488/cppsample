@@ -65,6 +65,11 @@ void bitwiseOperandsMismatch() {
     mask64 ^= value32;   // This would be flagged
 }
 
+void R_21_6 ( void )
+{
+     (void) printf ( "The library stdio shall not be used\n" ); /* Non-compliant */
+}
+
 int main() {
     create_memory_leak();
     std::cout << "The memory allocated in the function is now leaked." << std::endl;
