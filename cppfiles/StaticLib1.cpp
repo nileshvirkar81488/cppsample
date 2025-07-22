@@ -33,7 +33,9 @@ public:
 
 	SimpleAdder(int x,int y)
 	{
+		// Issue, memory leak not detected
 		a = new int(x);
+		// Issue, memory leak not detected
 		b = new int(y);	
 	}
 
@@ -82,6 +84,7 @@ void fnStaticLib1()
 	// No issue, This code declares a local variable, which is an array allocated on the stack. Stack memory is managed automatically.
 	char temp1[26] = "abcdefghijklmnopqrstuvwxy";
 
+	// Issue, buffer overflow not detected
 	strcpy(a, temp1); // buffer overflow
 
 	//BSTR bstr = SysAllocString(L"Hello from StaticLib1!"); // resource leak	
@@ -91,11 +94,12 @@ void fnStaticLib1()
 	int* p1 = new int(10);
 	int* p2 = nullptr;
 
+	// Issue, memory leak not detected
 	SimpleAdder*	adder = new SimpleAdder();
 	int result = adder->Add(p1, p2); // dereferncing a null pointer variable
 	int sum = Add(p1, p2);
 
-
+	// Issue, memory leak not detected
 	SimpleAdder* adder1 = new SimpleAdder(9,9);
 	adder1->Add();
 
