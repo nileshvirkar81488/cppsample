@@ -78,15 +78,16 @@ void fnStaticLib1()
 	strcpy(x, y); // buffer overflow
 
 
-	char a[4];	
+	char a[4];
+	// No issue, This code declares a local variable, which is an array allocated on the stack. Stack memory is managed automatically.
 	char temp1[26] = "abcdefghijklmnopqrstuvwxy";
+
 	strcpy(a, temp1); // buffer overflow
 
 	//BSTR bstr = SysAllocString(L"Hello from StaticLib1!"); // resource leak	
 	
 	
-		
-
+	// Issue, memory leak not detected at return statement, only temp are mentioned
 	int* p1 = new int(10);
 	int* p2 = nullptr;
 
