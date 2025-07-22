@@ -37,31 +37,31 @@ void create_memory_leak() {
     std::cout << "This line will never execute." << std::endl;
 }
 
-// void example_function() {
-//     try {
-//         // Some risky operation that might throw an exception
-//         throw std::runtime_error("Something went wrong!");
-//     }
-//     catch (const std::exception& e) {
-//     }
-// }
+void example_function() {
+    try {
+        // Some risky operation that might throw an exception
+        throw std::runtime_error("Something went wrong!");
+    }
+    catch (const std::exception& e) {
+    }
+}
 
-// void test(int z) { 
-// if (z == 0) int x = 1 / z; // warn 
-// }
+void test(int z) { 
+if (z == 0) int x = 1 / z; // warn 
+}
 
-// void bitwiseOperandsMismatch() {
-//     uint64_t mask64 = 0xFFFFFFFFFFFFFFFF;  // 64-bit value
-//     uint32_t value32 = 0x12345678;         // 32-bit value
+void bitwiseOperandsMismatch() {
+    uint64_t mask64 = 0xFFFFFFFFFFFFFFFF;  // 64-bit value
+    uint32_t value32 = 0x12345678;         // 32-bit value
     
-//     // ❌ VIOLATION: 64-bit operand & 32-bit operand
-//     uint64_t result = mask64 & value32;    // This would be flagged
+    // ❌ VIOLATION: 64-bit operand & 32-bit operand
+    uint64_t result = mask64 & value32;    // This would be flagged
     
-//     // ❌ VIOLATION: Assignment operators too
-//     mask64 &= value32;   // This would be flagged
-//     mask64 |= value32;   // This would be flagged  
-//     mask64 ^= value32;   // This would be flagged
-// }
+    // ❌ VIOLATION: Assignment operators too
+    mask64 &= value32;   // This would be flagged
+    mask64 |= value32;   // This would be flagged  
+    mask64 ^= value32;   // This would be flagged
+}
 
 int main() {
     create_memory_leak();
