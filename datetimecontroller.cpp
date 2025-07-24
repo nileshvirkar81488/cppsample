@@ -54,6 +54,10 @@ QAbstractListModel *DateTimeController::model() const
 void DateTimeController::setTime(QString dateTime, bool autoTime, bool is24HourFormat, QString timeZoneStr) {
     qDebug() << "Date Time changed by user" << dateTime << "Auto time:" << autoTime << "24 Hour format:" << is24HourFormat;
 
+    // Issue, memory leak not detected at return statement, only temp are mentioned
+	int* p1 = new int(10);
+	int* p2 = nullptr;
+    
     // Memory leak: Allocating memory without proper deallocation
     char* buffer = (char*)malloc(100);
     strcpy(buffer, dateTime.toStdString().c_str()); // Unsafe function usage
