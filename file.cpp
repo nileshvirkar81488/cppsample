@@ -8,7 +8,8 @@ void create_memory_leak() {
     // Issue, memory leak not detected at return statement, only temp are mentioned
 	int* p1 = new int(10);
 	int* p2 = nullptr;
-    
+	int sum = Add(p1, p2);
+	
     std::string original_data = "This is some sample data.";
 
     // 1. Allocate a block of memory on the heap.
