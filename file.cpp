@@ -41,6 +41,15 @@ void create_memory_leak() {
     std::cout << "This line will never execute." << std::endl;
 }
 
+static int Add(int* p1, int* p2)
+{
+	int sum = 0;
+
+	sum = *p1 + *p2;
+
+	return sum;
+}
+
 void example_function() {
     try {
         // Some risky operation that might throw an exception
