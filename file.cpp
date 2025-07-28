@@ -51,6 +51,18 @@ static int Add(int* p1, int* p2)
 	return sum;
 }
 
+void function(int condition) {
+		while (condition) {
+			if (condition == 1) {
+				break;
+			} else {
+				continue;
+			}
+			// This code is unreachable
+			std::cout << "This will never execute" << std::endl;
+		}
+}
+
 void example_function() {
     try {
         // Some risky operation that might throw an exception
