@@ -19,13 +19,18 @@ jobs:
         uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v5
       - name: Run Build Wrapper
         run: |
+            # Navigate to the cppfiles directory where CMakeLists.txt is located
+            cd cppfiles
+            
             # Create a directory for the build
-              mkdir build && cd build
+            mkdir build && cd build
 
-            # 1. Run CMake to generate the Makefile in the 'build' directory
-            # The ".." points to the source directory containing CMakeLists.txt
-              cmake .
-              build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} make -j$(nproc)
+            # Run CMake to generate the Makefile in the 'build' directory
+            # The ".." points to the cppfiles directory containing CMakeLists.txt
+            cmake ..
+            
+            # Run the build with build-wrapper (using absolute path for output)
+            build-wrapper-linux-x86-64 --out-dir ${GITHUB_WORKSPACE}/${{ env.BUILD_WRAPPER_OUT_DIR }} make -j$(nproc)
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
         env:
