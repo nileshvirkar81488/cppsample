@@ -72,7 +72,12 @@ void fnStaticLib1()
 {
 
 	char* temp = new char[100];	
+#ifdef _WIN32
 	strcpy_s(temp, 100, "Hello from StaticLib1!");
+#else
+	strncpy(temp, "Hello from StaticLib1!", 99);
+	temp[99] = '\0'; // Ensure null termination
+#endif
 	// resource leak
 
 	char x[4];
