@@ -25,13 +25,13 @@ public:
 
 void test() 
 { 
-    int *p = malloc(1); 
+    int *p = (int*)malloc(1); 
     free(p); 
     free(p); // warn: attempt to free released memory 
 }
 
 int main() {
-    int *p = malloc(1); 
+    int *p = (int*)malloc(1); 
     free(p); 
     free(p); // warn: attempt to free released memory 
     

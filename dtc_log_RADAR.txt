@@ -1,0 +1,3 @@
+DTC ID: DTC001, Type: SensorFailure, Description: Radar sensor not responding, Count: 1, Active: Yes
+DTC ID: DTC002, Type: CalibrationError, Description: Camera misaligned, Count: 1, Active: Yes
+DTC ID: DTC003, Type: ConnectionLost, Description: Ethernet link dropped, Count: 1, Active: Yes
